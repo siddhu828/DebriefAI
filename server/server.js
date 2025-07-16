@@ -4,9 +4,14 @@ const cors = require('cors');
 require('dotenv').config();
 
 const app = express();
+const allowedOrigins = [
+  "https://debrief-ai.vercel.app",
+  "https://debrief-chd5p9pbm-sids-projects-3dc1d54a.vercel.app", 
+  "https://debrief-ai-git-main-sids-projects-3dc1d54a.vercel.app"
 
+];
 app.use(cors({
-  origin: 'https://debrief-ai.vercel.app/',
+  origin: 'https://debrief-chd5p9pbm-sids-projects-3dc1d54a.vercel.app/',
   credentials: true
 }));
 
