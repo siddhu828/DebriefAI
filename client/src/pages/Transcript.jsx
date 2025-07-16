@@ -63,7 +63,7 @@ const Transcript = () => {
           </Paper>
 
           {/* Summary */}
-          {/* Summary */}
+          
 <Paper elevation={3} sx={{ flex: 1, p: 3 }}>
   <Typography variant="h6" gutterBottom> Summary</Typography>
   <Divider sx={{ mb: 2 }} />

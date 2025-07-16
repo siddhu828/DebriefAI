@@ -168,7 +168,12 @@ function Dashboard() {
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'space-between',
-            height: 360,
+            minHeight: 360,
+            maxHeight: 360,
+            maxWidth: 360,
+            minWidth: 360,
+            overflow: "hidden",
+            borderRadius: 3,
           }}
         >
           <Typography variant="subtitle1" fontWeight={600}>
@@ -239,16 +244,6 @@ function Dashboard() {
                 : "No summary available."}
             </Typography>
           </Box>
-
-          <Button
-            fullWidth
-            size="small"
-            variant="outlined"
-            sx={{ mt: 2 }}
-            onClick={() => navigate(`/transcripts/${item._id}`)}
-          >
-            View Transcript
-          </Button>
         </Paper>
       </Grid>
     ))}
