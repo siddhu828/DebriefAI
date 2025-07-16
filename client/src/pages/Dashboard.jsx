@@ -2,7 +2,7 @@ import { Typography, Box, Button, Stack, Divider, Paper, Grid } from "@mui/mater
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import useAuthStore from "../store/authStore"; 
-
+const API = import.meta.env.VITE_API_BASE_URL;
 function Dashboard() {
   const navigate = useNavigate();
   const { token } = useAuthStore();
@@ -13,7 +13,7 @@ function Dashboard() {
   useEffect(() => {
     const fetchRecordings = async () => {
       try {
-        const response = await fetch("http://localhost:5050/api/audio/user", {
+        const response = await fetch(`${API}/api/audio/user`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -35,7 +35,7 @@ function Dashboard() {
 
     const fetchUploads = async () => {
       try {
-        const response = await fetch("http://localhost:5050/api/upload/user-media", {
+        const response = await fetch(`${API}/api/upload/user-media`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -52,7 +52,7 @@ function Dashboard() {
     };
     const fetchTranscripts = async () => {
       try {
-        const response = await fetch("http://localhost:5050/api/transcripts/user", {
+        const response = await fetch(`${API}/api/transcripts/user`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },

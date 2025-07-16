@@ -16,7 +16,7 @@ import { toast } from "react-toastify";
 import useTranscriptStore from "../store/useTranscriptStore";
 import { useNavigate } from "react-router-dom";
 import useAuthStore from "../store/authStore";
-
+const API = import.meta.env.VITE_API_BASE_URL;
 
 function Record() {
   const auth = useAuthStore();
@@ -99,7 +99,7 @@ function Record() {
         throw new Error("Cloudinary upload failed.");
       }
 
-      const saveRes = await fetch("http://localhost:5050/api/upload/save-audio", {
+      const saveRes = await fetch(`${API}/api/upload/save-audio`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

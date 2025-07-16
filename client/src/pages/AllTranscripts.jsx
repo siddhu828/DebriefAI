@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Box, Typography, Paper, Button, Grid, Stack } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import useAuthStore from "../store/authStore";
+const API = import.meta.env.VITE_API_BASE_URL;
 
 const AllTranscripts = () => {
   const navigate = useNavigate();
@@ -11,7 +12,7 @@ const AllTranscripts = () => {
   useEffect(() => {
     const fetchTranscripts = async () => {
       try {
-        const res = await fetch("http://localhost:5050/api/transcripts/user", {
+        const res = await fetch(`${API}/api/transcripts/user`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },

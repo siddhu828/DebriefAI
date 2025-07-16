@@ -11,7 +11,7 @@ import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 import useTranscriptStore from "../store/useTranscriptStore";
 import useAuthStore from "../store/authStore";
 import { toast } from "react-toastify";
-
+const API = import.meta.env.VITE_API_BASE_URL;
 
 
 function Upload() {
@@ -58,7 +58,7 @@ function Upload() {
   };
 
   const saveToBackend = async (url, format) => {
-    const res = await fetch("http://localhost:5050/api/upload/save-media", {
+    const res = await fetch(`${API}/api/upload/save-media`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

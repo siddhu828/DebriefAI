@@ -6,7 +6,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { ClipLoader } from 'react-spinners';
 import { Box, Typography, Paper, Divider, Stack } from '@mui/material';
 import useAuthStore from "../store/authStore";
-
+const API = import.meta.env.VITE_API_BASE_URL;
 const Transcript = () => {
   const {id }= useParams();
   const [loading, setLoading] = useState(true);
@@ -19,7 +19,7 @@ const Transcript = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get(`http://localhost:5050/api/transcripts/${id}`, {
+        const res = await axios.get(`${API}/api/transcripts/${id}`, {
           headers: {
             Authorization: `Bearer ${auth.token}`,
           },
