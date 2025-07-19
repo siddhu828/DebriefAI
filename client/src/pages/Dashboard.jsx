@@ -81,7 +81,7 @@ function Dashboard() {
       {/* Top bar with Logout */}
       <Stack direction="row" justifyContent="space-between" alignItems="center" mb={4}>
         <Typography variant="h4">Welcome to Your Dashboard</Typography>
-        <Button color="error" variant="outlined" onClick={() => navigate('/register')}>
+        <Button color="error" variant="outlined" onClick={() => navigate('/')}>
           Logout
         </Button>
       </Stack>
