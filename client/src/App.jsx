@@ -26,7 +26,7 @@ function App() {
     <BrowserRouter>
       <ToastContainer position="top-right" autoClose={3000} pauseOnHover={true}/>
       <Routes>
-        <Route path="/" element={<Register />} />
+        <Route path="/" element={<RedirectToFramer />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route element={<MainLayout />}>
