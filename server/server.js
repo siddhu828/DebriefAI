@@ -5,7 +5,10 @@ require('dotenv').config();
 
 const app = express();
 app.use(cors({
-  origin: "https://debrief-ai.vercel.app",
+  origin: [
+    "https://nice-members-832678.framer.app",
+    "https://debrief-ai.vercel.app",
+  ],
   credentials: true
 }));
 
