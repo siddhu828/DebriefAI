@@ -4,24 +4,19 @@ const cors = require('cors');
 require('dotenv').config();
 
 const app = express();
-const allowedOrigins = [
-  "https://debrief-ai.vercel.app",
-  "https://debrief-ai-sids-projects-3dc1d54a.vercel.app",
-  "https://debrief-chd5p9pbm-sids-projects-3dc1d54a.vercel.app", 
-  "https://debrief-ai-git-main-sids-projects-3dc1d54a.vercel.app",
-];
 app.use(cors({
-  origin: function (origin, callback){
-    if(!origin || allowedOrigins.includes(origin)){
-      callback(null,true);
-    }else{
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
+  origin: "https://debrief-ai.vercel.app",
   credentials: true
 }));
 
 app.use(express.json());
+// MongoDB Connect
+mongoose.connect(process.env.MONGO_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+})
+.then(() => console.log('MongoDB connected'))
+.catch((err) => console.error('MongoDB connection failed:', err));
 
 // Routes
 const authRoutes = require('./routes/authRoutes');
@@ -39,13 +34,6 @@ app.use("/api/upload", uploadFileRoute);
 const transcriptRoute = require('./routes/transcriptRoute');
 app.use('/api/transcripts', transcriptRoute);
 
-// MongoDB Connect
-mongoose.connect(process.env.MONGO_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-})
-.then(() => console.log('MongoDB connected'))
-.catch((err) => console.error('MongoDB connection failed:', err));
 
 const PORT = process.env.PORT || 5050;
 app.listen(PORT, () => {
