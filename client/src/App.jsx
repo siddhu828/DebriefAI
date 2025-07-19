@@ -1,5 +1,5 @@
-import React from 'react'
-import { BrowserRouter, Routes, Route, useEffect } from "react-router-dom";
+import {React, useEffect} from 'react'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import MainLayout from './layout/MainLayout'
 import Upload from "./pages/Upload";
 import Record from "./pages/Record";
