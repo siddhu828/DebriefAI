@@ -13,7 +13,12 @@ import AllTranscripts from "./pages/AllTranscripts";
 import useAuthStore from "./store/authStore";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+const RedirectToFramer = () => {
+  useEffect(() => {
+    window.location.replace('https://nice-members-832678.framer.app/'); 
+  }, []);
+  return null;
+};
 function App() {
   const token = useAuthStore((state) => state.token);
 

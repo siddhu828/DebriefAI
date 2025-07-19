@@ -4,20 +4,14 @@ const cors = require('cors');
 require('dotenv').config();
 
 const app = express();
-const allowedOrigins = [
-  "https://debrief-ai.vercel.app",
-  "https://debrief-chd5p9pbm-sids-projects-3dc1d54a.vercel.app", 
-  "https://debrief-ai-git-main-sids-projects-3dc1d54a.vercel.app"
-
-];
+// const allowedOrigins = [
+//   "https://debrief-ai.vercel.app",
+//   "https://debrief-ai-sids-projects-3dc1d54a.vercel.app",
+//   "https://debrief-chd5p9pbm-sids-projects-3dc1d54a.vercel.app", 
+//   "https://debrief-ai-git-main-sids-projects-3dc1d54a.vercel.app",
+// ];
 app.use(cors({
-  origin: function (origin, callback){
-    if(!origin || allowedOrigins.includes(origin)){
-      callback(null,true);
-    }else{
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
+  origin:"https://debrief-ai.vercel.app",
   credentials: true
 }));
 
